@@ -1,9 +1,7 @@
 
 public class Board {
 
-    public int mineField[][]; // uses an impossible number to represent special tiles
-    // if mine: -1
-    // if uninitialized: -2
+    public int mineField[][]; // uses an impossible number to represent special tiles // if mine: 9
     public int size;
     public int mineCount;
 
@@ -20,8 +18,8 @@ public class Board {
         for (int i = 0; i < size; i++) {
             System.out.println("");
             for (int j = 0; j < size; j++) {
-                System.out.print(mineField[i][j]);
-                if (mineField[i][j] == -1) {
+                System.out.print(mineField[i][j] + " ");
+                if (mineField[i][j] == 9) {
                     mineAmount++;
                 }
             }
@@ -44,14 +42,17 @@ public class Board {
 
                 // this checks if it can place mine based on the probability
                 if (Math.random() < chance) {
-                    this.mineField[i][j] = -1; // it is now a mine
+                    this.mineField[i][j] = 9; // it is now a mine
                     remainMine--; // decrement remaining mines
                 } else {
-                    this.mineField[i][j] = -2; // it is now yet to be intitialized, will later be changed to reflect nearby bombs
+                    this.mineField[i][j] = 0; // it is now yet to be incremented, will later be changed to reflect nearby bombs
                 }
                 remainTile--; // always subtract the remain tile;
             }
         }
     }
 
+    public void finishField() { // this will now properly create the flag incrementer
+
+    }
 }
