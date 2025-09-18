@@ -5,6 +5,7 @@ public class Game {
 
         Board game = new Board(10, 35);
         game.placeMine();
+        game.readField();
 
     }
 
