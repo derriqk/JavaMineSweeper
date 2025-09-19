@@ -4,12 +4,14 @@ public class Board {
     public int mineField[][]; // uses an impossible number to represent special tiles // if mine: 9
     public int size;
     public int mineCount;
+    public int mineLocations[][];
 
     // creating the board
     public Board(int size, int mineCount) {
         this.mineCount = mineCount;
         this.size = size;
         this.mineField = new int[size][size];
+        this.mineLocations = new int[mineCount][2];
     }
 
     public void readField() { // to read the mine, it is a cheat method so it is for debug
@@ -53,6 +55,6 @@ public class Board {
     }
 
     public void finishField() { // this will now properly create the flag incrementer
-
+        // now i'll loop through the mine location
     }
 }
